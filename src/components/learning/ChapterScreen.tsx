@@ -11,7 +11,11 @@
  import { PhishingGame } from "./PhishingGame";
  import { HighlightBox } from "./HighlightBox";
  import { ComparisonTable } from "./ComparisonTable";
- import { ContentSection, FlipCard, TableData, FlowchartStep, DominoItem, ScenarioScript, PhishingExample, ComparisonItem } from "@/data/types";
+import { MatchingGame } from "./MatchingGame";
+import { AnimatedSteps } from "./AnimatedSteps";
+import { AccordionList } from "./AccordionList";
+import { InteractiveCards } from "./InteractiveCards";
+import { ContentSection, FlipCard, TableData, FlowchartStep, DominoItem, ScenarioScript, PhishingExample, ComparisonItem, MatchPair, AccordionItem, CarouselCard } from "@/data/types";
  import { chapters } from "@/data/learningModuleData";
  
  function renderSection(section: ContentSection, index: number) {
@@ -106,6 +110,50 @@
            <ComparisonTable items={section.content as ComparisonItem[]} title={section.title} />
          </motion.div>
        );
+      case 'matching':
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <MatchingGame pairs={section.content as MatchPair[]} title={section.title} />
+          </motion.div>
+        );
+      case 'steps':
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <AnimatedSteps steps={section.content as FlowchartStep[]} title={section.title} />
+          </motion.div>
+        );
+      case 'accordion':
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <AccordionList items={section.content as AccordionItem[]} title={section.title} />
+          </motion.div>
+        );
+      case 'carousel':
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <InteractiveCards cards={section.content as CarouselCard[]} title={section.title} />
+          </motion.div>
+        );
      case 'highlight':
        return (
          <HighlightBox
