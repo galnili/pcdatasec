@@ -1,5 +1,5 @@
  import React, { createContext, useContext, useState, ReactNode } from 'react';
- import { chapters, badges, additionalQuestions } from '@/data/learningModuleData';
+ import { chapters, badges, additionalQuestions, Chapter } from '@/data/learningModuleData';
  
  interface Badge {
    id: string;
@@ -33,7 +33,7 @@
    getTotalQuestions: () => number;
    getProgressPercentage: () => number;
    getBadges: () => Badge[];
-   getCurrentChapter: () => typeof chapters[0] | undefined;
+   getCurrentChapter: () => Chapter | undefined;
    hasSecondQuestion: () => boolean;
    goToSecondQuestion: () => void;
  }

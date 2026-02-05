@@ -2,7 +2,7 @@
  import { Button } from "@/components/ui/button";
  import { Card, CardContent } from "@/components/ui/card";
  import { useLearning } from "@/contexts/LearningContext";
- import { additionalQuestions } from "@/data/learningModuleData";
+ import { additionalQuestions } from "@/data/chapters/additionalQuestions";
  import { ArrowLeft, CheckCircle, XCircle, MessageCircle, User } from "lucide-react";
  import { motion, AnimatePresence } from "framer-motion";
  import { cn } from "@/lib/utils";
