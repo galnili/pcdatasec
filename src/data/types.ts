@@ -70,9 +70,33 @@
  }
  
  export interface ContentSection {
-   type: 'text' | 'table' | 'cards' | 'flowchart' | 'comparison' | 'warning' | 'tip' | 'scenario' | 'domino' | 'redflags' | 'phishing' | 'scripts' | 'highlight';
+  type: 'text' | 'table' | 'cards' | 'flowchart' | 'comparison' | 'warning' | 'tip' | 'scenario' | 'domino' | 'redflags' | 'phishing' | 'scripts' | 'highlight' | 'matching' | 'steps' | 'accordion' | 'carousel';
    title?: string;
-   content: string | FlipCard[] | TableData | FlowchartStep[] | WarningItem[] | ComparisonItem[] | DominoItem[] | ScenarioScript[] | PhishingExample[] | RedFlagScenario;
+  content: string | FlipCard[] | TableData | FlowchartStep[] | WarningItem[] | ComparisonItem[] | DominoItem[] | ScenarioScript[] | PhishingExample[] | RedFlagScenario | MatchPair[] | AccordionItem[] | CarouselCard[];
+}
+
+export interface MatchPair {
+  id: string;
+  term: string;
+  definition: string;
+}
+
+export interface AccordionItem {
+  id: string;
+  title: string;
+  content: string;
+  icon?: string;
+  badge?: string;
+  badgeColor?: 'success' | 'warning' | 'destructive' | 'default';
+}
+
+export interface CarouselCard {
+  id: string;
+  title: string;
+  subtitle?: string;
+  content: string;
+  icon?: string;
+  color?: 'primary' | 'success' | 'warning' | 'destructive';
  }
  
  export interface Question {
